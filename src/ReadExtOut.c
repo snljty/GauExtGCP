@@ -3,6 +3,14 @@
 
 /*  This program read output files from External steps.  */
 
+/*  these functions are defined in fortran programs.  */
+/*  only declarations are made here.  */
+void writeextspout_(const double const *, const double const *, const double const *, const double const *);
+void readgcpgrad_(const char const *, double *, double *, double *);
+void writeextgradout_(const double const *, const double const *, const double const *);
+void write3zeros_(const int const *);
+
+
 int main(int argc, char const * argv[])
 {
   char line[BUFSIZ] = "";
@@ -19,7 +27,10 @@ int main(int argc, char const * argv[])
   double xGrad = 0., yGrad = 0., zGrad = 0.;
   double xDipo = 0., yDipo = 0., zDipo = 0.;
   unsigned int i = 0;
-  unsigned int nzerolines = 0;
+  int nzerolines = 0;
+  /*  Only Fortran 95 and later introduced unsigned int,  */
+  /*  hence only int is declared here.  */
+  /*  But remember this should never be negative.  */
   char outname[BUFSIZ] = "";
 
   /*  acquire number of atoms and gradients  */

@@ -1,6 +1,6 @@
 CC = gcc
 FC = gfortran
-CCFLAGS = -O3 -Wno-unused-result -Wno-implicit-function-declaration
+CCFLAGS = -O3 -Wno-unused-result
 FCFLAGS = -O3
 CCLINKER = gcc
 FCLINKER = gfortran
