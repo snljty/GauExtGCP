@@ -6,7 +6,7 @@
 /*  these functions are defined in fortran programs.  */
 /*  only declarations are made here.  */
 void writeextspout_(const double const *, const double const *, const double const *, const double const *);
-void readgcpgrad_(const char const *, double *, double *, double *);
+void readgcpgrad_(const char const *, double const *, double const *, double const *);
 void writeextgradout_(const double const *, const double const *, const double const *);
 void write3zeros_(const int const *);
 
