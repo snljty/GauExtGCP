@@ -5,7 +5,7 @@
 /*  Generate external Gaussian input file to calculate force and single point energy,  * 
  *  perhaps Hessian later.                                                             */
 
-int main(int argc, char const * argv[])
+int main(int argc, const char * const argv[])
 {
   const double BohrToAngstrom = 0.5291773;
   char line[BUFSIZ] = "";
