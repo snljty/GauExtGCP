@@ -2,7 +2,7 @@
 
 subroutine writeextspout(totalenergy, Xdipole, Ydipole, Zdipole)
   implicit none
-  real(kind=8) :: totalenergy, Xdipole, Ydipole, Zdipole
+  real(kind=8), intent(in) :: totalenergy, Xdipole, Ydipole, Zdipole
 
   ! this line must be the first line to be written, so open a new file.
   open(11, file = "TmpExtOut.txt", status="replace")
@@ -13,7 +13,7 @@ end subroutine writeextspout
 
 subroutine writeextgradout(Xgrad, Ygrad, Zgrad)
   implicit none
-  real(kind=8) :: Xgrad, Ygrad, Zgrad
+  real(kind=8), intent(in) :: Xgrad, Ygrad, Zgrad
 
   open(11, position = "Append", file = "TmpExtOut.txt")
   write(11, "(3D20.12)") Xgrad, Ygrad, Zgrad
@@ -24,11 +24,10 @@ end subroutine writeextgradout
 subroutine write3Zeros(n)
   ! write 3 0D0 as a line, write n lines
   implicit none
-  integer(kind=4) :: n
+  integer(kind=4), intent(in) :: n
   integer(kind=4) :: j
-  real(kind=8) :: num
+  real(kind=8), parameter :: num = 0D0
 
-  num = 0D0
   open(11, position = "Append", file = "TmpExtOut.txt")
   do j = 1, n
     write(11, "(3D20.12)") num, num, num
