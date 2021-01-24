@@ -18,7 +18,7 @@ int main(int argc, const char * const argv[])
   FILE * iflp1 = NULL;  /*  Gaussian temporary output file  */
   FILE * iflp2 = NULL;  /*  gCP output file  */
   FILE * iflp3 = NULL;  /*  gCP gradient  */
-  FILE * iflp4 = NULL;  /*  gCP Hessian  */
+  /*  FILE * iflp4 = NULL;  *//*  gCP Hessian  */
   unsigned int natoms = 0;
   unsigned int ngrad = 0;
   double energy_gau = 0., energy_gcp = 0., energy = 0.;
@@ -31,7 +31,6 @@ int main(int argc, const char * const argv[])
   /*  Only Fortran 95 and later introduced unsigned int,  */
   /*  hence only int is declared here.  */
   /*  But remember this should never be negative.  */
-  char outname[BUFSIZ] = "";
 
   /*  acquire number of atoms and gradients  */
   iflp0 = fopen(argv[1], "r");
@@ -68,9 +67,7 @@ int main(int argc, const char * const argv[])
   iflp2 = NULL;
 
   /*  total energy  */
-  /*  changed here!!!  */
-  /*  energy = energy_gau + energy_gcp;  */
-  energy = energy_gau;
+  energy = energy_gau + energy_gcp;
 
   /*  dipole-moment, without gCP  */
   while (! feof(iflp1))
